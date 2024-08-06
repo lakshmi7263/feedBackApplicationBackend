@@ -10,7 +10,7 @@ app.use(express.json());
 
 const feedBackRouter = require('./router/feedBackRouter')
 
-app.use(feedBackRouter)
+app.use('/api',feedBackRouter)
 
 app.get('/',(req,res)=>{
     return res.send("connected")

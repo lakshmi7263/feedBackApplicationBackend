@@ -10,6 +10,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Database connection
 const dbConnection = async () => {

@@ -56,10 +56,22 @@ const postFeedBack = async (req, res) => {
   }
 };
 
+//
+app.get('/api/feedback', async (req, res) => {
+    try {
+      const feedbacks = await feedBackModel.find();
+      return res.status(200).json(feedbacks);
+    } catch (err) {
+      console.error('Error fetching feedbacks:', err);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+
 // Routes
 app.post('/api/feedback', postFeedBack);
 
 app.get('/', (req, res) => {
+
   return res.send("connected");
 });
 

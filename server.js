@@ -41,6 +41,9 @@ const feedbackSchema = new mongoose.Schema({
 
 const feedBackModel = mongoose.model('Feedback', feedbackSchema);
 
+const feedBackRouter = require('./router/feedBackRouter')
+
+app.use('/api',feedBackRouter)
 // Feedback route handler
 const postFeedBack = async (req, res) => {
   try {
